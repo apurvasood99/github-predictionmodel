@@ -11,7 +11,7 @@ def prediction():
     if request.method == 'GET':
         return render_template("prediction.html",locationStr="Nothing")
     if request.method == 'POST':
-      location = request.form['location']
+      location = "after post'
       rooms = request.form['rooms']
       bathrooms = request.form['bathrooms']
       area = request.form['area']
