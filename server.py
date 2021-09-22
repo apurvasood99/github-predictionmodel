@@ -11,7 +11,7 @@ def predictionpage():
     return render_template("prediction.html",locationStr="")
     
     
-app.route('/prediction', methods=['POST'])
+@app.route('/prediction', methods=['POST'])
 def predictionpage():
     if request.method == 'POST':
       location = request.form['location']
