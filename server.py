@@ -6,13 +6,10 @@ app = Flask(__name__)
 def homepage():
     return render_template("index.html")
     
-@app.route('/prediction', methods=['GET'])
+@app.route('/prediction', methods=['GET','POST'])
 def predictionpage():
-    return render_template("prediction.html",locationStr="")
-    
-    
-@app.route('/prediction', methods=['POST'])
-def predictionpage():
+    if request.method == 'GET':
+        return render_template("prediction.html",locationStr="")
     if request.method == 'POST':
       location = request.form['location']
       rooms = request.form['rooms']
