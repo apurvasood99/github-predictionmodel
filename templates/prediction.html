@@ -4,5 +4,49 @@
 		</head>
 	<body>
 	<h1>Bangalore Price Prediction Model</h1>
+	<form action='/prediction' method='POST'>
+		<table>
+			<tr>
+				<td>Select Location</td>
+				<td>
+					<select id='location'>
+						<option value="1">Loaction One</option>
+						<option value="2">Loaction Two</option>
+						<option value="3">Loaction Three</option>
+						<option value="4">Loaction Four</option>
+					</select>
+				</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>Select Number of Rooms</td>
+				<td>
+					<select id='rooms'>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+						<option value="4">Four</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Select Number of Bathrooms</td>
+				<td>
+					<select id='bathrooms'>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+						<option value="4">Four</option>
+					</select>
+				</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>Enter Area (in SqFt)</td>
+				<td>
+					<input type="text" id="area"/>
+				</td>
+			</tr>
+			<tr>
+				<td colpan='5'><input type='submit' value='Predict Cost'/>
+			</tr>
+		</table>
+	</form>
 	</body>
 </html>
