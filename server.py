@@ -11,7 +11,7 @@ def prediction():
     if request.method == 'GET':
         return render_template("prediction.html",locationStr="Nothing")
     if request.method == 'POST':
-      location = "after post"
+      location = request.form.get('location')
       return render_template("prediction.html",locationStr=location)
     
 if __name__ == "__main__":
