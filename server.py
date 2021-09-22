@@ -7,7 +7,7 @@ def homepage():
     return render_template("index.html")
     
 @app.route('/prediction', methods=['GET','POST'])
-def predictionpage():
+def prediction():
     if request.method == 'GET':
         return render_template("prediction.html",locationStr="")
     if request.method == 'POST':
