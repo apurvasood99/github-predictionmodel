@@ -19,8 +19,9 @@
 		</head>
 	<body>
 	<h1>Bangalore Price Prediction Model</h1>
-	{{if(estimatedCost > 0):}}
+	{%if(estimatedCost > 0)%}
 		<h2>Estimated cost for your selection is {{ estimatedCost }}</h1>
+	{%endif%}
 		
 	<form action='{{ url_for('prediction') }}' method='POST'>
 		<table>
