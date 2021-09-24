@@ -18,7 +18,7 @@ def prediction():
       location = request.form.get('location')
       bhk = request.form.get('rooms')
       bath = request.form.get('bathrooms')
-      sqft = request.form.get('area')
+      sqft = request.form.get('areainsqft')
       with open("./model/locations.json", "r") as f:
         __data_columns = json.load(f)['data_columns']
       with open('./model/model.pickle', 'rb') as f:
