@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request, jsonify
 import pickle
 import json
 import numpy as np
@@ -23,7 +23,10 @@ def prediction():
 def locations():
     with open("./model/locations.json", "r") as f:
         __locations = json.load(f)['locations']
-    return __locations
+    response = jsonify({
+        'locations': __locations 
+    })
+    return response
     
 if __name__ == "__main__":
     app.run()
