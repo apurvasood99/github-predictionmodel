@@ -20,7 +20,7 @@ def prediction():
       bath = request.form.get('bathrooms')
       sqft = request.form.get('area')
       with open("./model/locations.json", "r") as f:
-        __data_columns = json.load(f)['locations']
+        __data_columns = json.load(f)['data_columns']
       with open('./model/model.pickle', 'rb') as f:
             __model = pickle.load(f)
             
@@ -42,7 +42,7 @@ def prediction():
 @app.route('/locations',methods=['get'])
 def locations():
     with open("./model/locations.json", "r") as f:
-        __data_columns = json.load(f)['locations']
+        __data_columns = json.load(f)['data_columns']
         __locations = __data_columns[3:]
     response = jsonify({
         'locations': __locations 
