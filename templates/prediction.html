@@ -3,7 +3,7 @@
 			<title>Prediction Form</title>
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 			<script>
-			  var url = "http://127.0.0.1/locations";
+			  var url = "{{ url_for('locations') }}";
 			  //   var url = "/api/get_location_names"; // only Deployment
 			  $.get(url, function (data, status) {
 				// function to render the location names
