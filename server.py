@@ -35,8 +35,8 @@ def prediction():
       x[2] = bhk
       if loc_index >= 0:
         x[loc_index] = 1
-      finalRate = round(__model.predict([x])[0], 2)  
-      return render_template("prediction.html",locationStr=finalRate)
+      estimatedCost = round(__model.predict([x])[0], 2)  
+      return render_template("prediction.html",estimatedCost=estimatedCost)
       
       
 @app.route('/locations',methods=['get'])
