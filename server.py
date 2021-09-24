@@ -6,11 +6,11 @@ import numpy as np
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/homepage', methods=['GET'])
 def homepage():
     return render_template("index.html")
     
-@app.route('/prediction', methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def prediction():
     if request.method == 'GET':
         return render_template("prediction.html",estimatedCost=0)
