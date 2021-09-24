@@ -13,7 +13,7 @@ def homepage():
 @app.route('/prediction', methods=['GET','POST'])
 def prediction():
     if request.method == 'GET':
-        return render_template("prediction.html",locationStr="Nothing")
+        return render_template("prediction.html",estimatedCost=0)
     if request.method == 'POST':
       location = request.form.get('location')
       bhk = request.form.get('rooms')
