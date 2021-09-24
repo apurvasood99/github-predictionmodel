@@ -1,6 +1,23 @@
 <html>
-      <head>
-		<title>Prediction Form</title>
+		<head>
+			<title>Prediction Form</title>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			<script>
+			  var url = "http://127.0.0.1/locations";
+			  //   var url = "/api/get_location_names"; // only Deployment
+			  $.get(url, function (data, status) {
+				// function to render the location names
+				if (data) {
+				  var locations = data.locations;
+				  var location = document.getElementById("location");
+				  $("#location").empty();
+				  for (var i in locations) {
+					var opt = new Option(locations[i]); // Add location to drop drown list
+					$("#location").append(opt);
+				  }
+				}
+			  });
+			</script>
 		</head>
 	<body>
 	<h1>Bangalore Price Prediction Model</h1>
