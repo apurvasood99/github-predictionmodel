@@ -16,13 +16,34 @@ def prediction():
         return render_template("prediction.html",locationStr="Nothing")
     if request.method == 'POST':
       location = request.form.get('location')
-      return render_template("prediction.html",locationStr=location)
+      bhk = request.form.get('rooms')
+      bath = request.form.get('bathrooms')
+      sqft = request.form.get('area')
+      with open("./model/locations.json", "r") as f:
+        __data_columns = json.load(f)['locations']
+      with open('./model/model.pickle', 'rb') as f:
+            __model = pickle.load(f)
+            
+      try:
+        loc_index = __data_columns.index(location.lower())
+      except:
+        loc_index = -1
+
+      x = np.zeros(len(__data_columns))
+      x[0] = sqft
+      x[1] = bath
+      x[2] = bhk
+      if loc_index >= 0:
+        x[loc_index] = 1
+      finalRate = round(__model.predict([x])[0], 2)  
+      return render_template("prediction.html",locationStr=finalRate)
       
       
 @app.route('/locations',methods=['get'])
 def locations():
     with open("./model/locations.json", "r") as f:
-        __locations = json.load(f)['locations']
+        __data_columns = json.load(f)['locations']
+        __locations = __data_columns[3:]
     response = jsonify({
         'locations': __locations 
     })
