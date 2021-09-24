@@ -31,8 +31,8 @@ def prediction():
 
       x = np.zeros(len(__data_columns))
       x[0] = float(1000)
-      x[1] = 1
-      x[2] = 1
+      x[1] = bath
+      x[2] = bhk
       if loc_index >= 0:
         x[loc_index] = 1
       finalRate = round(__model.predict([x])[0], 2)  
