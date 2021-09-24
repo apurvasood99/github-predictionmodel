@@ -30,13 +30,13 @@ def prediction():
         loc_index = -1
 
       x = np.zeros(len(__data_columns))
-      x[0] = float(sqft)
+      x[0] = float(1000)
       x[1] = bath
       x[2] = bhk
       if loc_index >= 0:
         x[loc_index] = 1
       finalRate = round(__model.predict([x])[0], 2)  
-      return render_template("prediction.html",locationStr=finalRate)
+      return render_template("prediction.html",locationStr=finalRate,'',sqft)
       
       
 @app.route('/locations',methods=['get'])
